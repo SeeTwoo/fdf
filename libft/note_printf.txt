@@ -1,8 +1,0 @@
-extra flags for printf bonus
-
-	'-' aligns the text on the left of a with defined field, e.g.
-	printf("%-20s.\n", "hello");
-	outputs
-	hello               .
-
-	'0

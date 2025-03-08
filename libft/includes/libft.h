@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:55:42 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/03/05 12:43:53 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/03 21:32:47 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <stdint.h>
 # include <limits.h>
 # include "ft_colors.h"
+# include "ft_error.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
@@ -36,6 +37,7 @@ typedef struct s_bit
 int			ft_atoi(const char *src);
 void		ft_bzero(void *src, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
+void		ft_error_msg(char *msg1, char *msg2);
 int			ft_isalnum(int c);
 int			ft_isalpha(int c);
 int			ft_isascii(int c);
@@ -52,7 +54,6 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putstr_fd(char *s, int fd);
-char		*ft_sfstrncpy(char *dest, char const *src, size_t n);
 char		**ft_split(char const *s, char *sep);
 char		*ft_strchr(const char *s, int c);
 int			ft_strcmp(char const *s1, char const *s2);

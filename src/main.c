@@ -6,21 +6,34 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:02:43 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/02/06 15:43:14 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/08 15:49:26 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int ac, char **av)
+void	usage(int ac, char **envp)
+{
+	if (ac != 2)
+	{
+		ft_error_msg("usage", "./fdf <file>");
+		exit(EXIT_FAILURE);
+	}
+	if (!envp[0])
+	{
+		ft_error_msg("tsss executing fdf with env -i is such a dick move", NULL);
+		exit(EXIT_FAILURE);
+	}
+}
+
+int	main(int ac, char **av, char **envp)
 {
 	t_fdf_point	***file_points;
 	t_data		img;
 	void		*mlx;
 	void		*mlx_win;
 
-	if (ac != 2)
-		return (0);
+	usage(ac, envp);
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 1000, 800, "fdf");
 	printf("init window\n");

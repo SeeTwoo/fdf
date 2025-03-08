@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 22:05:08 by walter            #+#    #+#             */
-/*   Updated: 2025/03/05 11:41:09 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/05 11:42:41 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ t_bit	*build_list(char *buf, t_bit **head, t_bit **tail, int fd)
 			return (*head);
 		}
 		bytes_read = get_chunk(head, tail, buf, fd);
-		if (!tail || bytes_read < 0)
+		if (!tail || bytes_read <= 0)
 			return (gnl_free_list(*head));
 	}
 	return (*head);
