@@ -1,33 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_2d_coor.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/28 11:28:22 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/01/28 11:32:26 by wbeschon         ###   ########.fr       */
+/*   Created: 2024/11/12 14:45:19 by wbeschon          #+#    #+#             */
+/*   Updated: 2025/03/01 17:08:08 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
+char	*ft_strdup(const char *s)
+{
+	char	*dest;
+
+	if (!s)
+		return (NULL);
+	dest = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!dest)
+		return (NULL);
+	ft_strcpy(dest, s);
+	return (dest);
+}
+
+/*#include <stdio.h>
 int	main(int ac, char **av)
 {
-	int	x;
-	int y;
-	int	z;
-	float	screen_x;
-	float	screen_y;
-
-	if (ac != 4)
+	if (ac != 2)
 		return (0);
-	x = atoi(av[1]);
-	y = atoi(av[2]);
-	z = atoi(av[3]);
-	screen_x = ((0.866 * x) + (0.866 * y)) * 100;
-	screen_y = ((-0.5 * x) + (0.5 * y) + z) * 100;
-	printf("x = %f\nand\ny = %f\n", screen_x, screen_y);
+
+	char	*dest1;
+	char	*dest2;
+	dest1 = ft_strdup(av[1]);
+	dest2 = strdup(av[1]);
+	printf("%s\n", dest1);
+	printf("%s\n", dest2);
+	free(dest1);
+	free(dest2);
 	return (0);
 }
+*/

@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 12:03:50 by wbeschon          #+#    #+#             */
-/*   Updated: 2024/11/25 14:28:36 by wbeschon         ###   ########.fr       */
+/*   Created: 2024/11/13 11:56:40 by wbeschon          #+#    #+#             */
+/*   Updated: 2025/03/01 16:49:49 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*dest;
+	size_t			i;
+	unsigned char	*str;
 
-	dest = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (dest == NULL)
+	if (!s)
 		return (NULL);
-	ft_strlcpy(dest, s1, ft_strlen(s1) + ft_strlen(s2) + 1);
-	ft_strlcat(dest, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
-	return (dest);
+	i = 0;
+	str = (unsigned char *)s;
+	while (i < n)
+	{
+		if (str[i] == (unsigned char)c)
+			return ((void *)&s[i]);
+		i++;
+	}
+	return (NULL);
 }
 
 /*#include <stdio.h>
-int	main(int ac, char **av)
+int	main(void)
 {
-	if (ac != 3)
-		return (0);
-	char *join;
-	
-	join = ft_strjoin(av[1], av[2]);
-	printf("%s\n", join);
-	free(join);
-	return (0);
+	const char	*str = "banane";
+	int			c = 97;
+	char		*ch;
+
+	ch = 
 }*/

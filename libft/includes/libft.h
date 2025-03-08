@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:55:42 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/01/28 11:53:29 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/05 12:43:53 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <stdarg.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <limits.h>
+# include "ft_colors.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
@@ -50,8 +52,11 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putstr_fd(char *s, int fd);
-char		**ft_split(char const *s, char c);
+char		*ft_sfstrncpy(char *dest, char const *src, size_t n);
+char		**ft_split(char const *s, char *sep);
 char		*ft_strchr(const char *s, int c);
+int			ft_strcmp(char const *s1, char const *s2);
+char		*ft_strcpy(char *dest, char const *src);
 size_t		ft_strcspn(char	const *s, char const *reject);
 char		*ft_strdup(const char *s);
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
@@ -79,5 +84,14 @@ int			line_size(t_bit *head);
 t_bit		*gnl_new_node(char *buffer, int len);
 int			nl_ft_strlen(char *s);
 void		print_list(t_bit *head);
+
+int			ft_printf(char const *s, ...);
+int			ft_putchar(char c);
+int			ft_puthex(unsigned int n, char *base);
+int			ft_putlhex(unsigned long n, char *base);
+int			ft_putnbr(long long n);
+int			ft_putptr(void *ptr);
+int			ft_putstr(char *s);
+int			ft_putunbr(unsigned int n);
 
 #endif

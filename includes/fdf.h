@@ -6,15 +6,15 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:35:52 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/02/06 16:00:37 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/08 15:12:22 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "libft/libft.h"
-# include "minilibx-linux/mlx.h"
+# include "libft.h"
+# include "mlx.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>

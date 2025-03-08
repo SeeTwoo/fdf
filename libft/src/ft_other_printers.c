@@ -1,39 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_other_printers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 11:56:40 by wbeschon          #+#    #+#             */
-/*   Updated: 2024/11/29 11:28:12 by wbeschon         ###   ########.fr       */
+/*   Created: 2024/12/11 15:45:39 by wbeschon          #+#    #+#             */
+/*   Updated: 2025/02/06 17:01:15 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_putunbr(unsigned int n)
 {
-	size_t			i;
-	unsigned char	*str;
+	int		len;
+	int		i;
+	char	dest[11];
 
+	len = 0;
 	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
+	while (n > 9)
 	{
-		if (str[i] == (unsigned char)c)
-			return ((void *)&s[i]);
-		i++;
+		dest[len] = (n % 10) + '0';
+		len++;
+		n /= 10;
 	}
-	return (NULL);
+	dest[len] = n + '0';
+	while (len >= 0)
+	{
+		i += ft_putchar(dest[len]);
+		len--;
+	}
+	return (i);
 }
 
-/*#include <stdio.h>
-int	main(void)
+int	ft_putlhex(unsigned long n, char *base)
 {
-	const char	*str = "banane";
-	int			c = 97;
-	char		*ch;
+	int	i;
 
-	ch = 
-}*/
+	i = 0;
+	if (n <= 15)
+		i += ft_putchar(base[n]);
+	else
+	{
+		i += ft_putlhex(n / 16, base);
+		i += ft_putchar(base[n % 16]);
+	}
+	return (i);
+}

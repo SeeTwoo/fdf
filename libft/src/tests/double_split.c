@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   double_split.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 11:41:21 by wbeschon          #+#    #+#             */
-/*   Updated: 2024/11/29 11:41:03 by wbeschon         ###   ########.fr       */
+/*   Created: 2025/03/05 18:27:40 by wbeschon          #+#    #+#             */
+/*   Updated: 2025/03/05 19:00:21 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
-{
-	unsigned char	ch;
-
-	ch = c;
-	while (*s)
-	{
-		if (*s == ch)
-			return ((char *)s);
-		s++;
-	}
-	if (*s == ch)
-		return ((char *)s);
-	return (NULL);
-}
-
-/*#include <stdio.h>
 int	main(void)
 {
-	char s[11] = "tripouille";
+	double	n = -25.45;
+	double	new;
+	long	binary_shit;
+	long	mantissa;
+	long	exponent;
+	long	sign;	
 
-	printf("%s\n", ft_strchr(s, 'r'));
-	printf("%s\n", strchr(s, 'r'));
+	binary_shit = *(long *)&n;
+	(void)mantissa;
+	(void)exponent;
+	sign = (binary_shit >> 63 & 1);
+	new = *(double *)&binary_shit;
+	printf("%d\n", sign);
+	printf("%f\n", new);
 	return (0);
 }
-*/

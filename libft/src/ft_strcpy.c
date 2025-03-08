@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 10:11:49 by walter            #+#    #+#             */
-/*   Updated: 2024/11/29 11:34:58 by wbeschon         ###   ########.fr       */
+/*   Created: 2025/03/01 17:00:16 by wbeschon          #+#    #+#             */
+/*   Updated: 2025/03/01 17:07:22 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+char	*ft_strcpy(char *dest, char const *src)
 {
-	while (*s)
-	{
-		write(fd, s, 1);
-		s++;
-	}
-}
+	int	i;
 
-/*int	main(void)
-{
-	ft_putstr_fd("Hello, world !", 1);
-	ft_putstr_fd("", 1);
-	return (0);
+	if (!dest || !src)
+		return (NULL);
+	i = -1;
+	while (src[++i])
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return (dest);
 }
-*/
