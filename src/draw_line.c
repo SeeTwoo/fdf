@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:28:59 by walter            #+#    #+#             */
-/*   Updated: 2025/03/13 19:37:25 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/13 19:51:24 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	setup_color(t_color *color, t_line *line)
 {
 	color->r1 = (line->color_start >> 16) & 0xFF;
-	color->g1 =	(line->color_start >> 8) & 0xFF;
+	color->g1 = (line->color_start >> 8) & 0xFF;
 	color->b1 = line->color_start & 0xFF;
 	color->r2 = (line->color_finish >> 16) & 0xFF;
-	color->g2 =	(line->color_finish >> 8) & 0xFF;
+	color->g2 = (line->color_finish >> 8) & 0xFF;
 	color->b2 = line->color_finish & 0xFF;
 }
 
