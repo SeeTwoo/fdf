@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:19:05 by walter            #+#    #+#             */
-/*   Updated: 2025/03/12 19:25:08 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/15 13:40:09 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	ft_button(int keycode, t_arg *arg)
 	mlx_destroy_window(arg->mlx, arg->mlx_win);
 	mlx_destroy_display(arg->mlx);
 	free(arg->mlx);
+	free_triple_array(arg->points);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
@@ -30,6 +31,7 @@ int	ft_mouse(t_arg *arg)
 	mlx_destroy_window(arg->mlx, arg->mlx_win);
 	mlx_destroy_display(arg->mlx);
 	free(arg->mlx);
+	free_triple_array(arg->points);
 	exit(EXIT_SUCCESS);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 10:50:27 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 01:35:44 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/15 13:38:11 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	error(char *msg, t_arg *arg)
 {
 	ft_error_msg(msg, NULL);
 	free(arg->line);
+	free_triple_array(arg->points);
 	(void)arg;
 	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 22:54:44 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 12:12:50 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/15 13:43:45 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,11 @@ void	check_line(t_arg *arg)
 void	check_file(t_arg *arg, char *file_name)
 {
 	int		fd;
-	int		lpc;
 
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 		error(strerror(errno), arg);
-	lpc = 0;
+	arg->lpc = 0;
 	while (1)
 	{
 		arg->line = get_next_line(fd);
@@ -81,15 +80,15 @@ void	check_file(t_arg *arg, char *file_name)
 			error("Cannot allocate memory", arg);
 		if (!arg->line[0])
 			break ;
-		if (lpc == 0)
+		if (arg->lpc == 0)
 			arg->ppl = count_words(arg->line);
 		else
 			if (arg->ppl != count_words(arg->line))
 				error("uneven map", arg);
 		check_line(arg);
 		free(arg->line);
-		lpc++;
+		arg->lpc++;
 	}
-	arg->lpc = lpc;
+	free(arg->line);
 	close(fd);
 }

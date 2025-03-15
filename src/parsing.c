@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 23:56:05 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 01:55:05 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/15 13:44:34 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	parse_line(t_arg *arg, int i)
 	char	*token;
 	int		j;
 
-	arg->points[i] = malloc(sizeof(t_point *) * (arg->ppl + 1));
+	arg->points[i] = ft_calloc(arg->ppl + 1, sizeof(t_point *));
 	if (!arg->points[i])
 		error("Cannot allocate memory", arg);
 	j = 0;
@@ -59,7 +59,7 @@ void	parsing(t_arg *arg, char *file_name)
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 		error(strerror(errno), arg);
-	arg->points = malloc(sizeof(t_point **) * (arg->lpc + 1));
+	arg->points = ft_calloc(arg->lpc + 1, sizeof(t_point **));
 	if (!arg->points)
 		error("Cannot allocate memory", arg);
 	i = 0;
@@ -74,5 +74,6 @@ void	parsing(t_arg *arg, char *file_name)
 		free(arg->line);
 		i++;
 	}
+	free(arg->line);
 	close(fd);
 }

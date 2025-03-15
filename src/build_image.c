@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:15:21 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/03/15 12:28:23 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/15 13:39:12 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	build_image(t_arg *arg)
 		j = 0;
 		while (arg->points[i][j])
 		{
-			printf("doing point %d, %d\n", i, j);
 			draw_point_lines(arg, i, j);
 			j++;
 		}
