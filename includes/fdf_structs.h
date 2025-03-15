@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:31:56 by walter            #+#    #+#             */
-/*   Updated: 2025/03/13 19:47:36 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/15 01:16:54 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,13 @@ struct s_data
 
 struct s_arg
 {
-	t_point	***file_points;
+	t_point	***points;
 	int		ppl;
 	int		lpc;
 	t_data	img;
 	void	*mlx;
 	void	*mlx_win;
+	char	*line;
 };
 
 struct s_color

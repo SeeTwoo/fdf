@@ -1,36 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cleaners.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 18:48:42 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 01:52:16 by walter           ###   ########.fr       */
+/*   Created: 2025/03/14 10:50:27 by walter            #+#    #+#             */
+/*   Updated: 2025/03/15 01:35:44 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	usage(int ac)
+void	free_point_array(t_point **points)
 {
-	if (ac == 2)
+	int	i;
+
+	i = 0;
+	if (!points)
 		return ;
-	ft_error_msg("usage", "./fdf <file>");
-	exit(EXIT_FAILURE);
+	while (points[i])
+	{
+		free(points[i]);
+		i++;
+	}
+	free(points);
 }
 
-int	main(int ac, char **av)
+void	free_triple_array(t_point ***points)
 {
-	t_arg	arg;
+	int	i;
 
-	usage(ac);
-	init(&arg);
-	check_file(&arg, av[1]);
-	parsing(&arg, av[1]);
-	get_2d_coor(arg.points);
-	build_image(&arg);
-	mlx_put_image_to_window(arg.mlx, arg.mlx_win, arg.img.img, 0, 0);
-	set_hooks(&arg);
-	mlx_loop(arg.mlx);
+	i = 0;
+	if (!points)
+		return ;
+	while (points[i])
+	{
+		free_point_array(points[i]);
+		i++;
+	}
+	free(points);
+}
+
+void	error(char *msg, t_arg *arg)
+{
+	ft_error_msg(msg, NULL);
+	free(arg->line);
+	(void)arg;
+	exit(EXIT_FAILURE);
 }

@@ -12,10 +12,15 @@ MLX_DIR = minilibx-linux
 MLX_NAME = $(MLX_DIR)/libmlx.a
 
 SRC_DIR = src
-SRC_FILES = draw_line.c \
+SRC_FILES = build_image.c \
+			check_file.c \
+			cleaners.c \
+			draw_line.c \
 			events.c \
+			get_coordinates.c \
 			init.c \
-			main.c
+			main.c \
+			parsing.c
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 OBJ_DIR = obj

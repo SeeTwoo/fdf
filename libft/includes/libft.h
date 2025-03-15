@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:55:42 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/03/13 17:14:46 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/14 22:11:12 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include "get_next_line.h"
 # include "ft_error.h"
 
+int			ft_atoi_base(char const *s, char const *charset);
 int			ft_atoi(const char *src);
 void		ft_bzero(void *src, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
@@ -61,6 +62,7 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t n);
 char		*ft_strrchr(const char *s, int c);
 size_t		ft_strspn(char const *s, char const *accept);
+char		*ft_strstr(char const *haystack, char const *needle);
 char		*ft_strtok(char	*s, char *sep);
 long		ft_strtol(char *s, char **end, size_t size);
 char		*ft_strtrim(char const *s, char const *set);

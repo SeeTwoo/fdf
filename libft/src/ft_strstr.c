@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 18:48:42 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 01:52:16 by walter           ###   ########.fr       */
+/*   Created: 2025/03/14 20:49:30 by walter            #+#    #+#             */
+/*   Updated: 2025/03/14 22:09:41 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-void	usage(int ac)
+char	*ft_strstr(char const *haystack, char const *needle)
 {
-	if (ac == 2)
-		return ;
-	ft_error_msg("usage", "./fdf <file>");
-	exit(EXIT_FAILURE);
-}
+	int	i;
+	int	j;
 
-int	main(int ac, char **av)
-{
-	t_arg	arg;
-
-	usage(ac);
-	init(&arg);
-	check_file(&arg, av[1]);
-	parsing(&arg, av[1]);
-	get_2d_coor(arg.points);
-	build_image(&arg);
-	mlx_put_image_to_window(arg.mlx, arg.mlx_win, arg.img.img, 0, 0);
-	set_hooks(&arg);
-	mlx_loop(arg.mlx);
+	if (!haystack || !needle)
+		return (NULL);
+	if (!haystack[0] || !needle[0])
+		return (NULL);
+	i = 0;
+	while (haystack[i])
+	{
+		j = 0;
+		while (haystack[i + j] == needle[j] && needle[j] && haystack[i + j])
+			j++;
+		if (needle[j] == '\0')
+			return ((char *)&haystack[i]);
+		i++;
+	}
+	return (NULL);
 }

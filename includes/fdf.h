@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:35:52 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/03/13 16:04:43 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/15 01:27:42 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,14 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
+# include <errno.h>
 
 # ifndef VALID_CHARS
 #  define VALID_CHARS "-0123456789"
+# endif
+
+# ifndef BASE 
+#  define BASE "0123456789ABCDEF"
 # endif
 
 # ifndef ESC_CODE 

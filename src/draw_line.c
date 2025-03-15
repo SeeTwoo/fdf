@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:28:59 by walter            #+#    #+#             */
-/*   Updated: 2025/03/13 19:51:24 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/15 01:41:56 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ void	draw_line(t_data *img, t_line *line, t_color *color)
 	int		point_color;
 
 	line->step = 0;
-	while (line->x_start != line->x_finish && line->y_start != line->y_finish)
+	while (line->x_start != line->x_finish
+		&& line->y_start != line->y_finish)
 	{
 		line->t = 0;
 		if (line->length != 0)
 			line->t = (float)line->step / line->length;
-		printf("t = %f\n", line->t);
 		point_color = interpolate_color(color, line->t);
 		pix_put(img, line->x_start, line->y_start, point_color);
 		line->e2 = 2 * line->err;
