@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 22:54:44 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 01:34:38 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/15 12:12:50 by walter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	check_token(char *token, t_arg *arg)
 	if (!ft_isdigit(*token) && *token != '-')
 		error("invalid map", arg);
 	number = ft_strtol(token, &end, 10);
-	if ((*end != '\0' || *end != ',') || number > 500 || number < -500)
+	if (!ft_strchr(" ,\n\0", *end) || number > 500 || number < -500)
 		error("invalid map", arg);
 	token += ft_strspn(token, "-0123456789");
 	if (!(*token))
