@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:51:04 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/03/17 16:51:50 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:48:40 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	compute_point(t_point *point, int scale)
 	float	y;
 
 	x = (((point->x - point->y) * cos(0.523599)) * scale) + 500;
-	y = ((point->z * -2.5f + (point->x + point->y) * sin(0.523599)) * scale) + 400;
+	y = ((point->z * -2.5f + (point->x + point->y)
+				* sin(0.523599)) * scale) + 400;
 	point->x_2d = (int)x;
 	point->y_2d = (int)y;
 }
