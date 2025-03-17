@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 23:56:05 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 13:44:34 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/17 14:40:21 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	parse_token(t_arg *arg, char *token, int i, int j)
 	arg->points[i][j]->x = x;
 	arg->points[i][j]->y = y;
 	arg->points[i][j]->z = ft_atoi(token);
-	if (ft_strstr(token, "0x,"))
+	if (ft_strstr(token, ",0x"))
 		color = ft_atoi_base(&(ft_strstr(token, ",0x"))[3], BASE);
 	else
 		color = 0xFFFFFFFF;

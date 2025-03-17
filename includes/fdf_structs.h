@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:31:56 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 01:16:54 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/17 16:07:10 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ struct s_line
 	int		e2;
 	int		length;
 	int		step;
-	float	t;
+	float	grad;
 };
 
 /*bpx = bits per pixels, ln_len = line length and endn = endian*/

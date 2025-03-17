@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:28:59 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 01:41:56 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/17 16:15:30 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int	interpolate_color(t_color *color, float t)
 	int	g;
 	int	b;
 
-	r = color->r1 + (int)(t * (color->r2 - color->r1));
-	g = color->g1 + (int)(t * (color->g2 - color->g1));
-	b = color->b1 + (int)(t * (color->b2 - color->b1));
+	r = ((1.0f - t) * (float)color->r1 + t * (float)color->r2);
+	g = ((1.0f - t) * (float)color->g1 + t * (float)color->g2);
+	b = ((1.0f - t) * (float)color->b1 + t * (float)color->b2);
 	return ((r << 16) | (g << 8) | b);
 }
 
@@ -70,15 +70,15 @@ void	pix_put(t_data *data, int x, int y, int color)
 void	draw_line(t_data *img, t_line *line, t_color *color)
 {
 	int		point_color;
+	int		temp;
 
 	line->step = 0;
+	temp = 0;
 	while (line->x_start != line->x_finish
 		&& line->y_start != line->y_finish)
 	{
-		line->t = 0;
-		if (line->length != 0)
-			line->t = (float)line->step / line->length;
-		point_color = interpolate_color(color, line->t);
+		line->grad = (float)temp / (float)line->length;
+		point_color = interpolate_color(color, line->grad);
 		pix_put(img, line->x_start, line->y_start, point_color);
 		line->e2 = 2 * line->err;
 		if (line->e2 > -line->dy)
@@ -88,6 +88,7 @@ void	draw_line(t_data *img, t_line *line, t_color *color)
 		}
 		if (line->e2 < line->dx)
 		{
+			temp++;
 			line->err += line->dx;
 			line->y_start += line->sy;
 		}
