@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 22:54:44 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 13:43:45 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/18 09:18:03 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,18 @@ int	count_words(char *line)
 	return (count);
 }
 
+void	capitalize(char	*s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		s[i] = ft_toupper(s[i]);
+		i++;
+	}
+}
+
 void	check_token(char *token, t_arg *arg)
 {
 	char	*end;
@@ -45,6 +57,7 @@ void	check_token(char *token, t_arg *arg)
 	token += 3;
 	if (ft_strlen(token) == 0 || ft_strlen(token) > 8)
 		error("invalid map", arg);
+	capitalize(token);
 	while (*token)
 	{
 		if (!ft_strchr(BASE, *token))

@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 23:56:05 by walter            #+#    #+#             */
-/*   Updated: 2025/03/17 14:40:21 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/18 09:17:15 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	parse_token(t_arg *arg, char *token, int i, int j)
 	int		x;
 	int		y;
 	int		color;
+	char	*temp;
 
 	arg->points[i][j] = malloc(sizeof(t_point));
 	if (!arg->points[i][j])
@@ -26,8 +27,12 @@ void	parse_token(t_arg *arg, char *token, int i, int j)
 	arg->points[i][j]->x = x;
 	arg->points[i][j]->y = y;
 	arg->points[i][j]->z = ft_atoi(token);
-	if (ft_strstr(token, ",0x"))
-		color = ft_atoi_base(&(ft_strstr(token, ",0x"))[3], BASE);
+	temp = ft_strstr(token, ",0x");
+	if (temp)
+	{
+		capitalize(temp);
+		color = ft_atoi_base(temp, BASE);
+	}
 	else
 		color = 0xFFFFFFFF;
 	arg->points[i][j]->color = color;

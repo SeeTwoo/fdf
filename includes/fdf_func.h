@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:46:19 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 13:40:48 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/18 09:14:16 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_FUNC_H
 
 void	build_image(t_arg *arg);
+void	capitalize(char *s);
 void	check_file(t_arg *arg, char *file_name);
 void	draw_line(t_data *img, t_line *line, t_color *color);
 void	error(char *msg, t_arg *arg);
