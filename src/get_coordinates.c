@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:51:04 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/03/18 15:08:38 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:40:49 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	compute_point(t_point *point, float scale, t_arg *arg)
 	y = (float)point->y;
 	z = (float)point->z;
 	x_2d = (((x - y) * cos(0.523599)) * scale * arg->zoom)
-				+ (WIN_W / 2) + arg->h_off;
+		+ (WIN_W / 2) + arg->h_off;
 	y_2d = ((z * -5.0f + (x + y) * sin(0.523599)) * scale
-				* arg->zoom) + (WIN_H / 2) + arg->v_off;
+			* arg->zoom) + (WIN_H / 2) + arg->v_off;
 	point->x_2d = x_2d;
 	point->y_2d = y_2d;
 }
@@ -37,7 +37,8 @@ void	get_2d_coor(t_arg *arg)
 	int		j;
 	float	scale;
 
-	scale = -((WIN_W / 2) - 100) / ((0.866 * arg->points[0][0]->x) + (0.866 * arg->points[0][0]->y));
+	scale = -((WIN_W / 2) - 100) / ((0.866 * arg->points[0][0]->x)
+			+ (0.866 * arg->points[0][0]->y));
 	i = 0;
 	while (arg->points[i])
 	{
