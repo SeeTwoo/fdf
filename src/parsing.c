@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 23:56:05 by walter            #+#    #+#             */
-/*   Updated: 2025/03/18 11:15:18 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/18 11:39:14 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	parse_token(t_arg *arg, char *token, int i, int j)
 	if (temp)
 	{
 		capitalize(temp);
-		color = ft_atoi_base(temp, BASE);
+		color = ft_atoi_base(&temp[3], BASE);
 	}
 	else
 		color = 0xFFFFFF;
