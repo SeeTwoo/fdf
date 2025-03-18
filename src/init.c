@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:51:07 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 14:09:20 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/18 09:21:43 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,16 @@ void	null_all(t_arg *arg)
 
 void	init(t_arg *arg)
 {
-	char	*temp;
-
 	null_all(arg);
-	arg->points = NULL;
 	arg->mlx = mlx_init();
+	if (!arg->mlx)
+		error("Cannot allocate memory", arg);
 	arg->mlx_win = mlx_new_window(arg->mlx, WIN_W, WIN_H, "fdf");
+	if (!arg->mlx_win)
+		error("Cannot allocate memory", arg);
 	arg->img.img = mlx_new_image(arg->mlx, WIN_W, WIN_H);
-	temp = mlx_get_data_addr(arg->img.img, &arg->img.bpx,
+	if (!arg->img.img)
+		error("Cannot allocate memoory", arg);
+	arg->img.addr = mlx_get_data_addr(arg->img.img, &arg->img.bpx,
 			&arg->img.ln_len, &arg->img.endn);
-	arg->img.addr = temp;
 }
