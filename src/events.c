@@ -6,14 +6,40 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:19:05 by walter            #+#    #+#             */
-/*   Updated: 2025/03/15 13:40:09 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/18 13:41:27 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*keycode i = 99 and o = 114
+          u = 103 and d = 101*/
+
+void	zoom(int keycode, t_arg *arg)
+{
+	float	inc;
+
+	if (keycode == 99)
+		inc = 0.25f;
+	else if (arg->zoom <= 0.25f)
+		return ;
+	else
+		inc = -0.25f;
+	mlx_destroy_image(arg->mlx, arg->img.img);
+	arg->img.img = mlx_new_image(arg->mlx, WIN_W, WIN_H);
+	if (!arg->img.img)
+		error("Cannot allocate memory", arg);
+	arg->zoom += inc;
+	get_2d_coor(arg->points, arg->zoom);
+	build_image(arg);
+	//mlx_clear_window(arg->mlx, arg->mlx_win);
+	mlx_put_image_to_window(arg->mlx, arg->mlx_win, arg->img.img, 0, 0);
+}
+
 int	ft_button(int keycode, t_arg *arg)
 {
+	if (keycode == 99 || keycode == 114)
+		zoom(keycode, arg);
 	if (keycode != ESC_CODE)
 		return (0);
 	mlx_destroy_image(arg->mlx, arg->img.img);
