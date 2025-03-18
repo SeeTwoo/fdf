@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:35:52 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/03/15 01:27:42 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/18 10:31:49 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@
 # endif
 
 # ifndef WIN_W
-#  define WIN_W 1024
+#  define WIN_W 1440
 # endif
 
 # ifndef WIN_H
-#  define WIN_H 780
+#  define WIN_H 900
 # endif
 
 #endif

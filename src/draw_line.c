@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:28:59 by walter            #+#    #+#             */
-/*   Updated: 2025/03/17 16:15:30 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/18 10:37:07 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	pix_put(t_data *data, int x, int y, int color)
 {
 	char	*dest;
 
+	if (x < 0 || x > WIN_W || y < 0 || y > WIN_H)
+		return ;
 	dest = data->addr + (y * data->ln_len + x * (data->bpx / 8));
 	*(unsigned int *)dest = color;
 }

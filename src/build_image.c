@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:15:21 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/03/15 13:39:12 by walter           ###   ########.fr       */
+/*   Updated: 2025/03/18 09:28:46 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	build_image(t_arg *arg)
 			draw_point_lines(arg, i, j);
 			j++;
 		}
+		//printf("lap\n");
 		i++;
 	}
 }

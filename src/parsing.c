@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 23:56:05 by walter            #+#    #+#             */
-/*   Updated: 2025/03/18 09:17:15 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/18 10:26:35 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ void	parse_line(t_arg *arg, int i)
 	if (!arg->points[i])
 		error("Cannot allocate memory", arg);
 	j = 0;
-	token = ft_strtok(arg->line, " ");
+	token = ft_strtok(arg->line, " \t\n");
 	while (token)
 	{
 		parse_token(arg, token, i, j);
-		token = ft_strtok(NULL, " ");
+		token = ft_strtok(NULL, " \t\n");
 		j++;
 	}
 }
