@@ -6,14 +6,19 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:19:05 by walter            #+#    #+#             */
-/*   Updated: 2025/03/18 13:41:27 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:40:00 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
 /*keycode i = 99 and o = 114
-          u = 103 and d = 101*/
+          u = 103 and d = 101
+			left = 65361
+			up = 65362
+			right = 65363
+			down = 65364
+		  */
 
 void	zoom(int keycode, t_arg *arg)
 {
@@ -30,9 +35,27 @@ void	zoom(int keycode, t_arg *arg)
 	if (!arg->img.img)
 		error("Cannot allocate memory", arg);
 	arg->zoom += inc;
-	get_2d_coor(arg->points, arg->zoom);
+	get_2d_coor(arg);
 	build_image(arg);
-	//mlx_clear_window(arg->mlx, arg->mlx_win);
+	mlx_put_image_to_window(arg->mlx, arg->mlx_win, arg->img.img, 0, 0);
+}
+
+void	translate(int keycode, t_arg *arg)
+{
+	if (keycode == RIGHT)
+		arg->h_off += 5;
+	else if (keycode == LEFT)
+		arg->h_off -= 5;
+	else if (keycode == DOWN)
+		arg->v_off += 5;
+	else if (keycode == UP)
+		arg->v_off -= 5;
+	mlx_destroy_image(arg->mlx, arg->img.img);
+	arg->img.img = mlx_new_image(arg->mlx, WIN_W, WIN_H);
+	if (!arg->img.img)
+		error("Cannot allocate memory", arg);
+	get_2d_coor(arg);
+	build_image(arg);
 	mlx_put_image_to_window(arg->mlx, arg->mlx_win, arg->img.img, 0, 0);
 }
 
@@ -40,6 +63,8 @@ int	ft_button(int keycode, t_arg *arg)
 {
 	if (keycode == 99 || keycode == 114)
 		zoom(keycode, arg);
+	if (keycode == RIGHT || keycode == LEFT || keycode == UP || keycode == DOWN)
+		translate(keycode, arg);
 	if (keycode != ESC_CODE)
 		return (0);
 	mlx_destroy_image(arg->mlx, arg->img.img);

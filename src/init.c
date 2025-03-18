@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:51:07 by walter            #+#    #+#             */
-/*   Updated: 2025/03/18 12:37:45 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:33:02 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ void	null_all(t_arg *arg)
 	arg->mlx = NULL;
 	arg->mlx_win = NULL;
 	arg->line = NULL;
+	arg->zoom = 1.0f;
+	arg->h_off = 0;
+	arg->v_off = 0;
 }
 
 void	init(t_arg *arg)

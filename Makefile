@@ -30,6 +30,8 @@ NAME = fdf
 
 all: $(LIBFT_NAME) $(MLX_NAME) $(NAME)
 
+bonus: all
+
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 

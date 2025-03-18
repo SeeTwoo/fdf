@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:28:59 by walter            #+#    #+#             */
-/*   Updated: 2025/03/18 11:13:14 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:31:22 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	setup_line(t_line *line, t_point *start, t_point *finish)
 		line->sy = -1;
 	line->err = line->dx - line->dy;
 	if (line->dy > line->dx)
-		line->length = line->dx;
-	else
 		line->length = line->dy;
+	else
+		line->length = line->dx;
 }
 
 int	interpolate_color(t_color *color, float t)
@@ -77,7 +77,7 @@ void	draw_line(t_data *img, t_line *line, t_color *color)
 	line->step = 0;
 	temp = 0;
 	while (line->x_start != line->x_finish
-		&& line->y_start != line->y_finish)
+		|| line->y_start != line->y_finish)
 	{
 		line->grad = (float)temp / (float)line->length;
 		point_color = interpolate_color(color, line->grad);

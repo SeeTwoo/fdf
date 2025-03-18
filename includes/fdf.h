@@ -6,7 +6,7 @@
 /*   By: wbeschon <wbeschon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 18:35:52 by wbeschon          #+#    #+#             */
-/*   Updated: 2025/03/18 10:31:49 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:41:57 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@
 # endif
 
 # ifndef ESC_CODE 
+#  define LEFT 65361
+#  define RIGHT 65363
+#  define UP 65362
+#  define DOWN 65364
 #  define ESC_CODE 65307
 # endif
 

@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 18:31:56 by walter            #+#    #+#             */
-/*   Updated: 2025/03/18 12:19:18 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:23:30 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ struct s_arg
 	void	*mlx_win;
 	char	*line;
 	float	zoom;
+	int		h_off;
+	int		v_off;
 };
 
 struct s_color
