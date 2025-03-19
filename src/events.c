@@ -6,7 +6,7 @@
 /*   By: walter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 19:19:05 by walter            #+#    #+#             */
-/*   Updated: 2025/03/18 14:40:00 by wbeschon         ###   ########.fr       */
+/*   Updated: 2025/03/19 14:51:09 by wbeschon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ void	zoom(int keycode, t_arg *arg)
 	float	inc;
 
 	if (keycode == 99)
-		inc = 0.25f;
+		inc = 1.1f;
 	else if (arg->zoom <= 0.25f)
 		return ;
 	else
-		inc = -0.25f;
+		inc = 0.9f;
 	mlx_destroy_image(arg->mlx, arg->img.img);
 	arg->img.img = mlx_new_image(arg->mlx, WIN_W, WIN_H);
 	if (!arg->img.img)
 		error("Cannot allocate memory", arg);
-	arg->zoom += inc;
+	arg->zoom *= inc;
 	get_2d_coor(arg);
 	build_image(arg);
 	mlx_put_image_to_window(arg->mlx, arg->mlx_win, arg->img.img, 0, 0);
@@ -43,13 +43,13 @@ void	zoom(int keycode, t_arg *arg)
 void	translate(int keycode, t_arg *arg)
 {
 	if (keycode == RIGHT)
-		arg->h_off += 5;
+		arg->h_off += 20;
 	else if (keycode == LEFT)
-		arg->h_off -= 5;
+		arg->h_off -= 20;
 	else if (keycode == DOWN)
-		arg->v_off += 5;
+		arg->v_off += 20;
 	else if (keycode == UP)
-		arg->v_off -= 5;
+		arg->v_off -= 20;
 	mlx_destroy_image(arg->mlx, arg->img.img);
 	arg->img.img = mlx_new_image(arg->mlx, WIN_W, WIN_H);
 	if (!arg->img.img)
